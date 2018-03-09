@@ -1,0 +1,119 @@
+Version Controlling
+=====================
+All the developers at the end of the day upload their code into some servers which are called version controlling systems.These VCS accept the project uploads coming from various developers and create an integrated project out of all these uploads.
+
+The process of uploading into version controlling systems is called check-in
+
+The next day when the developers download the code form version controlling servers they will find all the code created by all the team members.
+
+The process of downloading is called check-out
+
+Version controlling systems also save all the different versions of the code that has been uploaded
+The advantage is at any point of time we can revert back to any working version of code without loosing any
+work done by the developer
+
+
+Version controlling is categorised into 2 types
+1 Centralised version controlling systems (CVS)
+2 Distibuted version controlling systems (DVS)
+
+Centralised version controlling systems (CVS)
+===================================================
+In CVS version controlling happens only on a remote server.All the developers and testers upload their code
+into this server and it tracks all the changes once they are uploaded
+
+Distibuted version controlling systems (DVS)
+================================================
+In DVS we have a local repository which is installed on every individual developers machine.The developer
+first upload his code int the LR present on his machine.This LR will perform version controlling only
+on that individual developers code.Later this code is uploaded into a remote server where version controlling happens at the level of the entire team
+
+The advantage of DVS over CVS is at anypoint of time we can copy the complete project present in the remote
+server and maintain the same structure in out=r indivual machines also(ie have acccess over older versions
+and latest versions of the code)
+
+GIT
+========
+
+This is an opensource version controlling system which supports distibuted version controlling
+
+Installing git on windows
+==========================
+1 Open https://git-scm.com/downloads
+2 Download Git for windows
+3 Install it
+4 We will get an application called git bash
+  This is the command prompt of git where we can fire Git commands
+
+5 To check the version of Git
+  Open git bash
+  git --version
+
+Installing git on Linux
+========================
+1 Launch a linux terminal
+2 sudo apt-get update
+3 sudo apt-get install -y git
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

@@ -1,0 +1,103 @@
+For installing chef on a centos machine
+curl https://omnitruck.chef.io/install.sh | sudo bash  -s -- -P chefdk -c stable -v 0.18.30
+
+Resource
+A resource is a statement of configuration policy
+It describes the desired state of an element and it also specifies the steps needed to bring the item to the desired state
+
+Resources are created using a scripting language called ruby
+
+Eg File resource:This is used for creating and managing files
+
+Create a chef resource for using file and create a file with some data on the local machine
+
+mkdir resources
+cd resources
+vim sample1.rb
+file /home/centos/resources/hello.txt  do
+   content "Hello IntelliQ \n"
+end
+
+Save and quit
+To run the above resource
+sudo chef-client --local-mode sample1.rb
+
+Policy:These are similar to arguments of ansible which are passed using -a option
+Policies are defined in a resource and in the previous playbook we gave one policy ie content
+
+Based on these plocies chef will bring the remote machine to the desired state
+
+To create a resource for creating files and sending content and also controlling the ownership,groupowner ship and permissions
+
+vim sample2.rb
+file '/home/centos/resources/hello.txt'  do
+   content "Hello IntelliQ \n"
+   mode '777'
+   owner 'root'
+   group 'root'
+end
+
+Run the above resource 
+sudo chef-client --local-mode sample2.rb
+
+Similarly to install packages we have a resource called package
+
+Create a chef resource for installing httpd and tree
+vim sample3.rb
+package 'tree' do
+   action :install
+end
+package 'httpd' do
+   action :install
+end
+Save and quit
+Run the above resource 
+sudo chef-client --local-mode sample3.rb
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,303 @@
+
+
+Docker commands
+-------------------
+To pull docker images
+docker pull imagename
+To see the list od docker images present in our docker host
+docker images
+or 
+docker image ls
+
+To delete a docker image
+docker rmi imagename
+
+To start an image as a container
+docker run imagename
+
+Run command options
+--------------------
+ -d  Runs the docker container as a deamon.ie it run in     detached mode in the back ground
+ --name Used for giving a name for the docker container
+ -p Used for port mapping 
+    Eg 8080:80  External port of the docker host 8080 is 
+    mapped with internal port 80 of the container
+ -v Used for attaching volumes to containers
+ -rm used to remove the containers on exit of the contaienr
+ -it used for opening an interactive terminal in the      container where we wan fire linux commands
+ -P used for publishing the port numbers.When we donot do     port mapping docker perfroms portmapping it will mapp     the internal port of the container with a externla port     of the docker host.This external port will be some     number greater than 30000
+  -e Used to pass environment variables to the docker      container
+  -a used for attaching the STDIN and STDOUT to container
+  --network Used for attaching a specific network to th e     container.
+Note :run command start the image as a container.If the image is already present in the docker host else it will pull the image from hub.docker.com and then start it as a container
+
+To stop a container
+docker stop containername/containerid
+
+To remove a stopped container
+docker rm containername/containerid
+
+To remove a running contianer
+docker rm -f containername/containerid
+
+To restart a container
+docker restart  containername/containerid
+
+To restart after 10 seconds
+docker restart -t 10 containername/containerid
+
+To get into a contaienr which is already running
+docker exec -it containername/containerid bash
+
+To get into a contaienr which already ahs a shell opened in it
+docker attach containername/containerid
+
+To see the ports of the container
+docker port containername/containerid
+
+To see the list of all running container
+docker container ls
+
+To see the list of all containers(running and stopped)
+docker ps -a
+
+To inspect a container
+docker inspect containername/containerid
+The above command will show the comeplete info about the docker container in JSON file format.
+
+To create a new network
+docker network create networkname
+
+To find the list of all the docker networks
+docker network ls
+
+To find detailed info about a network
+docker network inspect networkname/networkid
+
+To connect a container to a network
+docker network connect  networkname/networkid                                  containername/containerid
+
+To disconnect a container from an network
+docker network disconnect  networkname/networkid                                             containername/containerid
+
+To display the logs of a container
+docker logs containername/containerid
+
+To displayb the last 100 logs of a container
+docker logs -tail 100 containername/containerid
+
+To find information about docker isntallation
+docker --version
+docker info
+
+To psuh a docker image into docker hub
+docker push imagename
+To rename a local image
+docker tag original-image-name new-image-name
+
+To build an image from docker file
+docker build -t imagename .
+
+note . represents current working directory
+
+To stop all the running containers
+docker stop $(docker ps -aq)
+
+To remove all the stopped contaienr
+docker rm $(docker ps -aq)
+
+To remove all the containers(stopped and running)
+docker rm -f $(docker ps -aq)
+
+
+
+
+
+
+
+
+
+
+
+
+
+scenario1
+1 Start nginx as a container,run it in detached mode
+  and do port mapping between external port 8080 of the   docker host and    internal port 80 of the contaiener
+
+  docker run -d --name webserver -p 80:80 nginx
+
+Scenario2 
+2 Start httpd as a container in detached mode
+and publish the port numbers
+   docker run -P -d --name mywebserver httpd
+
+Scenario 3
+Start mysql as a container and create some tables in it
+ 
+docker run -d --name mydb -e MYSQL_ROOT_PASSWORD=intelliq                                                       mysql
+
+docker exec -it mydb bash
+In the container to login into mysql prompt
+mysql -u root -p
+enter password
+
+In mysql prompt
+show databases;
+To switch into a database
+use sys;
+Create some table using the code from the below page
+https://justinsomnia.org/2009/04/the-emp-and-dept-tables-                                                 for-mysql/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
